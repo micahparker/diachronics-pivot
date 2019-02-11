@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sacrifice Pivot</title>
+		<script src="underscore-min.js"></script>
+        <!-- The built PivotViewer script -->
+        <script src="seadragon-pivot-standalone-min.js"></script>
+        <!-- The logic -->
+		<script src="master.js"></script>
+		<script src="master.json"></script>
+        <style>
+            html {
+                font-family:sans-serif;
+                font-size:0.875em;
+            }
+            html, body {
+                height: 100%;
+                position: relative;
+                margin: 0;
+            }
+            #pivotviewer {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border: 2px solid gray;
+            }
+        </style>
+
+        <!--The styles that make everything inside the Pivot view shiny-->
+        <link rel="stylesheet" type="text/css" href="PivotView.css"/>
+    </head>
+    <body onload="onLoad(document)">
+        <!--All the developer using this control must do is create a div with the proper
+            class and data attribute, and it will be initialized automatically. There are
+            also Javascript APIs for those who need more control.-->
+        <div id="pivotviewer"></div>
+    </body>
+</html> </body>
+</html>

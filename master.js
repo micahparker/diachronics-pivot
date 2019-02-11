@@ -208,9 +208,16 @@ function onLoad(doc) {
 	        width: 1000,
 	        height: 750,
 	        template:
-	            '<div style="position:absolute;top:0;bottom:0;left:0;\
-	                         right:0;border:10px solid black;font-size:5em">\
-	                <div style="position:absolute;width:700px;height:730px;right:0">\
+	            '<?\
+	                var map = '+JSON.stringify(colors)+';\
+	            ?>\
+	            <div style="position:absolute;top:0;bottom:0;left:0;\
+	                        right:0;border:10px solid black;font-size:5em;background:<?\
+			                    var map = '+JSON.stringify(colors)+';\
+			                	(map[(facets["'+colorCol+'"] || [0])[0]] || "gray")\
+	                		?>\
+	            ">\
+	                <div style="position:absolute;width:700px;height:730px;right:0;">\
 	                    <b><?name?></b>\
 	                    <br/>\
 	                    <?description?>\

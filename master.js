@@ -29,7 +29,7 @@ function onLoad(doc) {
 		"Impersonal_Calamity_Averted (y/n)": "Is a disaster averted?",
 		"Primary Purpose": "Primary Purpose of Sacrifice",
 		"Classic_Documentary_Scource": "Classic Documentary Source",
-		"Content": "What’s being offered?"
+		"Content": "What's being offered?"
 	};
 	//set title
 	viewer.setTitle("Sacrifice");
@@ -56,21 +56,21 @@ function onLoad(doc) {
 	    "Jewish Order": {
 	        type: "Number",
 	        isFilterVisible: false,
-	        isWordWheelVisible: true,
-	        isMetaDataVisible: true
+	        isWordWheelVisible: false,
+	        isMetaDataVisible: false
 	    },
 	    "Jewish Order Combo": {
 	    	name: "Jewish Canon Order",
 	        type: "String",
 	        isFilterVisible: false,
-	        isWordWheelVisible: true,
+	        isWordWheelVisible: false,
 	        isMetaDataVisible: true
 	    },
 	    "Christian Order": {
 	        type: "Number",
 	        isFilterVisible: false,
-	        isWordWheelVisible: true,
-	        isMetaDataVisible: true
+	        isWordWheelVisible: false,
+	        isMetaDataVisible: false
 	    },
 	    "Christian Order Combo": {
 	        type: "String",
@@ -178,11 +178,11 @@ function onLoad(doc) {
 	//rename facets
 	var _facets = {};
 	_.each(facets, function (v,f) {
-		var rinsed = f.match(/[a-zA-Z \?]/g).join("")
+		var rinsed = f.replace(/_/g," ").match(/[a-zA-Z \?]/g).join("").replace(" yn","?");
 		if (facetMapping[f]) {
 			_facets[facetMapping[f]] = v;
 		}
-		else if (rinsed.length !== f.length) {
+		else if (rinsed !== f) {
 			_facets[rinsed] = v;
 			facetMapping[f] = rinsed;
 		}
